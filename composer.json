@@ -1,0 +1,16 @@
+{
+    "name": "zairl23/wp-plugin-bone",
+    "description": "template of wordpress plugin",
+    "authors": [
+        {
+            "name": "ney chang",
+            "email": "756127792@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+    	"psr-4": {
+    		"PluginBone\\":"heart/"
+    	}
+    }
+}
