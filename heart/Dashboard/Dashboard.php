@@ -9,30 +9,33 @@
 class Dashboard  {
 
 
-	const Wp_Plugin_Bone_VERSION = '0.0.2';
+	const WP_PLUGIN_BONE_VERSION = '0.0.1';
 
 	
 	public static function wp_plugin_bone_enqueue_admin()
 	{		
-		// General Admin Script
+		// Admin Script
 		// wp_enqueue_script(
-		// 	'wp_plugin_bone-admin',
-		// 	plugins_url( 'public/dashboard/js/wp_plugin_bone-admin.js', __DIR__.'/../../../'),
-		// 	array( 'jquery', 'jquery-ui-core', 'jquery-ui-draggable', 'jquery-ui-droppable','jquery-ui-selectable'),
+		// 	'plugin_bone-admin',
+		// 	plugins_url( 'public/dashboard/js/plugin_bone-admin.js', __DIR__.'/../../../'),
+		// 	array(),
 		// 	QDISCUSS_VERSION
 		// );
 
-		// Admin Style
-		// wp_register_style(
-		// 	'wp_plugin_bone-admin',
-		// 	plugins_url( 'public/dashboard/css/wp_plugin_bone-admin.css', __DIR__.'/../../../'),
-		// 	false,
+		// wp_localize_script( 'plugin_bone-admin', 'plugin_bone_admin_params', array(
+		// 	'config_settings_redirect' =>  './admin.php?page=plugin_bone-settings',
+		// 	'extensions_settings_redirect' => './admin.php?page=plugin_bone-extensions',	
+		// ));
+
+		// // Admin Style
+		// wp_enqueue_style(
+		// 	'plugin_bone-admin',
+		// 	plugins_url( 'public/dashboard/css/plugin_bone-admin.css', __DIR__.'/../../../'),
+		// 	array(),
 		// 	QDISCUSS_VERSION,
 		// 	'all'
 		// );
 		
-		// Let others play
-		do_action( 'mycred_admin_enqueue' );
 	}
 
 	public static function wp_plugin_bone_admin_menu()
@@ -82,15 +85,16 @@ class Dashboard  {
 
 	}
 
-	public static function wp_plugin_bone_admin_page_styles()
-	{
-		wp_enqueue_style( 'wp_plugin_bone-admin' );
-	}
-
 	public static function wp_plugin_bone_settings_page()
 	{
 
 		include __DIR__ . "/settings-page.php";
+	}
+
+	public static function plugin_bone_ajax_admin_save() 
+	{
+		wp_parse_str(stripslashes($_POST['data']), $data);
+		// codes here
 	}
 
 }

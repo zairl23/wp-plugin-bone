@@ -36,4 +36,4 @@ $wp_plugin_bone = new \PluginBone\App();
 //Dashboard
 add_action( 'admin_enqueue_scripts', '\PluginBone\Dashboard\Dashboard::wp_plugin_bone_enqueue_admin');
 add_action( 'admin_menu',     '\PluginBone\Dashboard\Dashboard::wp_plugin_bone_admin_menu', 999 );
-// add_action('wp_ajax_qdiscuss_ajax_admin_save', '\WP_Plugin_Bone\Dashboard::wp_plugin_bone_ajax_admin_save');
+add_action('wp_ajax_plugin_bone_ajax_admin_save', '\WP_Plugin_Bone\Dashboard::wp_plugin_bone_ajax_admin_save');
