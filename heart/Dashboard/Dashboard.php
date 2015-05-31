@@ -55,7 +55,7 @@ class Dashboard  {
 			$title,
 			'add_users',
 			$menu_slug,
-			array('Dashboard', 'wp_plugin_bone_settings_page'),
+			array(__CLASS__, 'wp_plugin_bone_settings_page'),
 			$menu_icon
 		);
 
